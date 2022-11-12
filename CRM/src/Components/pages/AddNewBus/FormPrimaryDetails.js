@@ -47,7 +47,7 @@ export default class FormPrimaryDetails extends Component {
             value={values.busNumber}
           />
           <small className="form-text text-muted">
-            Enter in the format of ba-2-pa
+            Enter in the format of AAA - 1111
           </small>
         </div>
 
