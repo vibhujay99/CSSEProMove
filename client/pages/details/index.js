@@ -7,7 +7,7 @@ import {
   Select,
   AutoComplete,
   InputNumber,
-  Button
+  Button,
 } from "antd";
 import Swal from "sweetalert2";
 import Router from "next/router";
@@ -21,10 +21,10 @@ class Details extends React.Component {
     name: "",
     email: "",
     phone: "",
-    address: ""
+    address: "",
   };
 
-  handleAutoComplete = value => {
+  handleAutoComplete = (value) => {
     this.setState({
       dataSource:
         !value || value.indexOf("@") >= 0
@@ -32,17 +32,17 @@ class Details extends React.Component {
           : [
               `${value}@gmail.com`,
               `${value}@hotmail.com`,
-              `${value}@yahoo.com`
+              `${value}@yahoo.com`,
             ],
-      email: value
+      email: value,
     });
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleNumber = value => {
+  handleNumber = (value) => {
     this.setState({ phone: value });
   };
 
@@ -58,9 +58,9 @@ class Details extends React.Component {
     }
   };
 
-  sweetAlert = status => {
+  sweetAlert = (status) => {
     setTimeout(() => {
-      if(status !== "error"){
+      if (status !== "error") {
         Router.push("/");
       }
     }, 1000);
@@ -69,7 +69,7 @@ class Details extends React.Component {
       return Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Something went wrong!"
+        text: "Something went wrong!",
       });
     } else {
       Swal.fire("Congrats!", "Your seat is booked", "success");

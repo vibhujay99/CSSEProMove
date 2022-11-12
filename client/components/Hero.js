@@ -12,7 +12,7 @@ const styles = {
     background: 'url("../static/img/bus.jpg")',
     height: "92vh",
     backgroundRepeat: "noRepeat",
-    backgroundSize: "cover"
+    backgroundSize: "cover",
   },
   overlayDiv: {
     height: "92vh",
@@ -22,8 +22,8 @@ const styles = {
     top: "4rem",
     left: 0,
     zIndex: 0,
-    opacity: 0.4
-  }
+    opacity: 0.4,
+  },
 };
 
 export default Hero;

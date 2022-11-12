@@ -12,23 +12,23 @@ const Filters = ({ info, setBuses, setLoading }) => {
     fetchAllTravels();
   }, []);
 
-  const onChangeCheckbox = e => {
+  const onChangeCheckbox = (e) => {
     setLoading(true);
     let list = [...checkedTravels];
     let listType = [...checkedType];
     if (e.target.checked) {
       list.push(e.target.name);
     } else {
-      list = list.filter(event => event != e.target.name);
+      list = list.filter((event) => event != e.target.name);
     }
     setCheckedTravels(list);
 
     if (listType.length <= 0) {
       listType = ["AC", "Delux", "Suspense AC", "Suspense Delux", "Normal"];
-    } 
+    }
 
     // Logic for getting all bus if all checkbox are unchecked
-    const newArr =[];
+    const newArr = [];
     if (list.length <= 0) {
       travels.map((tr, i) => {
         newArr[i] = tr._id;
@@ -39,7 +39,7 @@ const Filters = ({ info, setBuses, setLoading }) => {
     }
   };
 
-  const onChangeType = e => {
+  const onChangeType = (e) => {
     setLoading(true);
     let list = [...checkedType];
     let travelsList = [...checkedTravels];
@@ -47,7 +47,7 @@ const Filters = ({ info, setBuses, setLoading }) => {
     if (e.target.checked) {
       list.push(e.target.name);
     } else {
-      list = list.filter(event => event != e.target.name);
+      list = list.filter((event) => event != e.target.name);
     }
     setCheckedType(list);
 
@@ -81,7 +81,7 @@ const Filters = ({ info, setBuses, setLoading }) => {
     <div style={{ marginRight: "2rem" }}>
       <Card className="mb-2" style={{ width: "90%" }}>
         <h1>Travels: </h1>
-        {travels.map(travel => (
+        {travels.map((travel) => (
           <div key={travel._id} className="checkbox-wrappper">
             <Checkbox name={travel._id} onChange={onChangeCheckbox}>
               {travel.name}

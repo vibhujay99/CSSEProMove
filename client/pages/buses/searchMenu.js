@@ -28,18 +28,18 @@ const SearchMenu = ({ buses, info }) => {
   const [formData, setFormData] = useState({
     startLocation: info.startLocation,
     endLocation: info.endLocation,
-    journeyDate: info.journeyDate
+    journeyDate: info.journeyDate,
   });
 
-  const onChangeFrom = val => {
+  const onChangeFrom = (val) => {
     setFormData({ ...formData, ...{ startLocation: val } });
   };
 
-  const onChangeTo = val => {
+  const onChangeTo = (val) => {
     setFormData({ ...formData, ...{ endLocation: val } });
   };
 
-  const onChangeDate = val => {
+  const onChangeDate = (val) => {
     const journeyDate = val && moment(val._d).format("YYYY-MM-DD");
     setFormData({ ...formData, ...{ journeyDate } });
   };
@@ -47,7 +47,7 @@ const SearchMenu = ({ buses, info }) => {
   const routeTransition = () => {
     Router.push({
       pathname: "/buses",
-      query: formData
+      query: formData,
     });
   };
 
@@ -79,7 +79,7 @@ const SearchMenu = ({ buses, info }) => {
           option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
         }
       >
-        {locations.map(location => (
+        {locations.map((location) => (
           <Option value={location._id} key={location._id}>
             {location.name}
           </Option>
@@ -102,7 +102,7 @@ const SearchMenu = ({ buses, info }) => {
           option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
         }
       >
-        {locations.map(location => (
+        {locations.map((location) => (
           <Option value={location._id} key={location._id}>
             {location.name}
           </Option>

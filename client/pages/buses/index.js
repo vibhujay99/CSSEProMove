@@ -17,8 +17,8 @@ const Buses = ({ resp, info }) => {
   }, [resp]);
 
   const fetchBuses = () => {
-    setBuses(resp)
-  }
+    setBuses(resp);
+  };
   return (
     <Layout>
       <Param info={info}>
@@ -27,9 +27,7 @@ const Buses = ({ resp, info }) => {
           <Col span={6} className="main-filter">
             <Filters info={info} setBuses={setBuses} setLoading={setLoading} />
           </Col>
-          <Col span={18}>
-            {loading ? <Loading /> : <Cards buses={buses} />}
-          </Col>
+          <Col span={18}>{loading ? <Loading /> : <Cards buses={buses} />}</Col>
         </Row>
       </Param>
     </Layout>
@@ -37,7 +35,7 @@ const Buses = ({ resp, info }) => {
 };
 
 Buses.getInitialProps = async ({
-  query: { startLocation, endLocation, journeyDate }
+  query: { startLocation, endLocation, journeyDate },
 }) => {
   const info = { startLocation, endLocation, journeyDate };
   const resp = await searchBus(info);

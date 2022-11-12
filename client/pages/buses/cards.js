@@ -14,7 +14,7 @@ const Cards = ({ buses = [] }) => {
     });
 
     return totalAvailable;
-  }, [buses])
+  }, [buses]);
 
   // const nepaliDate =
   //   buses[0] &&

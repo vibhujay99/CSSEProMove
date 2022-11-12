@@ -10,7 +10,7 @@ class SingleCard extends React.Component {
   showModal = () => {
     this.setState({
       visible: true,
-      loading: false
+      loading: false,
     });
   };
 
@@ -20,7 +20,7 @@ class SingleCard extends React.Component {
     // this.setState({userBooked: arr});
     this.encryptInfo(seat);
     // console.log(this.props)
-  }
+  };
 
   handleOk = (info) => {
     this.setState({ loading: true });
@@ -28,52 +28,65 @@ class SingleCard extends React.Component {
       this.setState({ loading: false, visible: false });
       Router.push({
         pathname: "/details",
-        query: {info}
+        query: { info },
       });
     }, 1000);
   };
 
-  encryptInfo = seat => {
-    const {startLocation, endLocation, fare, journeyDate, travel={}, slug} = this.props.bus;
+  encryptInfo = (seat) => {
+    const {
+      startLocation,
+      endLocation,
+      fare,
+      journeyDate,
+      travel = {},
+      slug,
+    } = this.props.bus;
     let start = startLocation.name;
     let end = endLocation.name;
     let travelName = travel.name;
-    const info = {start, end, fare, journeyDate, travelName, seat, slug}
+    const info = { start, end, fare, journeyDate, travelName, seat, slug };
     const resp = enc(info);
-    this.handleOk(resp)
-  }
+    this.handleOk(resp);
+  };
 
-  handleCancel = e => {
+  handleCancel = (e) => {
     this.setState({
-      visible: false
+      visible: false,
     });
   };
 
   seatColorMeaning = () => {
-    return(
+    return (
       <>
-        <div style={{display: 'flex', alignItems: 'start', flexDirection: 'row-reverse'}}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "start",
+            flexDirection: "row-reverse",
+          }}
+        >
           <p>Available</p>
-          <Button type="primary" style={{margin: '0 1rem'}}></Button>
+          <Button type="primary" style={{ margin: "0 1rem" }}></Button>
           <p>Booked</p>
-          <Button style={{backgroundColor: "rgb(67, 67, 67)", margin: '0 1rem'}}></Button>
+          <Button
+            style={{ backgroundColor: "rgb(67, 67, 67)", margin: "0 1rem" }}
+          ></Button>
           <p>Sold</p>
-          <Button type="danger" style={{margin: '0 1rem'}}></Button>
+          <Button type="danger" style={{ margin: "0 1rem" }}></Button>
         </div>
       </>
-    )
-  }
+    );
+  };
 
   seatModal = () => (
     <Modal
       title="Seat Details"
       visible={this.state.visible}
       onCancel={this.handleCancel}
-      footer={[
-        this.seatColorMeaning()
-      ]}
+      footer={[this.seatColorMeaning()]}
       width={1000}
-      >
+    >
       <SeatDetails
         sold={this.props.bus.soldSeat}
         setSold={() => {}}
@@ -105,7 +118,7 @@ class SingleCard extends React.Component {
             </Col>
             <Col span={1}></Col>
             <Col span={4}>
-              <p>{bus.travel ? bus.travel.name: null}</p>
+              <p>{bus.travel ? bus.travel.name : null}</p>
             </Col>
             <Col span={4}>
               <p>{bus.type}</p>

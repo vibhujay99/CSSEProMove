@@ -47,7 +47,7 @@ class SeatDetails extends Component {
     }
   }
 
-  handleClick = async seat => {
+  handleClick = async (seat) => {
     Swal.fire({
       title: "Are you sure?",
       text: "Book seat!",
@@ -55,10 +55,10 @@ class SeatDetails extends Component {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, book it!"
-    }).then(result => {
+      confirmButtonText: "Yes, book it!",
+    }).then((result) => {
       if (result.value) {
-        this.props.handleUserBooked(seat)
+        this.props.handleUserBooked(seat);
       }
     });
   };
@@ -67,7 +67,7 @@ class SeatDetails extends Component {
     const { size, arr, oddA, oddB, evenA, evenB } = this.state;
     const { sold, booked } = this.props;
     return (
-      <div style={{display: "flex", justifyContent: "center"}}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <div style={styles.wrapper}>
           <div className="steer" style={styles.steer}>
             <img style={styles.img} src="/static/img/steer.png" />
@@ -186,42 +186,42 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     position: "relative",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   steer: {
     margin: ".5rem",
     position: "relative",
     top: 0,
-    left: "12rem"
+    left: "12rem",
   },
   img: {
     height: "3rem",
-    transform: "rotate(90deg)"
+    transform: "rotate(90deg)",
   },
   busDiv: {
     background: "#434343",
     position: "relative",
     width: "17rem",
-    color: "#ffff"
+    color: "#ffff",
   },
   secondCol: {
     position: "absolute",
     top: 0,
-    right: 0
+    right: 0,
   },
   soldButton: {
     background: "#ff4d4f",
     color: "#ffff",
-    margin: ".5rem"
+    margin: ".5rem",
   },
   bookedButton: {
     background: "#434343",
     color: "#ffff",
-    margin: ".5rem"
+    margin: ".5rem",
   },
   button: {
-    margin: ".5rem"
-  }
+    margin: ".5rem",
+  },
 };
 
 export default SeatDetails;
