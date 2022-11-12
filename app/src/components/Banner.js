@@ -8,7 +8,7 @@ export class Banner extends Component {
       <View style={styles.sloganButton}>
         <Image
           style={styles.tinyLogo}
-          source={require("../../assets/logo.png")}
+          source={require("../../assets/logohomre2.png")}
         />
       </View>
     );
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     borderColor: ConstantColors.tintColor,
   },
   tinyLogo: {
-    height: 40,
+    height: 130,
     width: 200,
   },
 });

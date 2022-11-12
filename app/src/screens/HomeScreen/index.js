@@ -248,7 +248,7 @@ export class Test extends Component {
                   style={styles.submitButton}
                   disabled={!buttonEnabled}
                 >
-                  <Text style={{ fontSize: 20 }}>GO !</Text>
+                  <Text style={{ fontSize: 15 }}>GO !</Text>
                 </Button>
               </View>
             </View>
@@ -298,7 +298,7 @@ const styles = StyleSheet.create({
   },
 
   inputText: {
-    padding: 15,
+    padding: 10,
     color: "black",
     fontSize: 15,
   },
@@ -316,7 +316,7 @@ const styles = StyleSheet.create({
   },
 
   circleButton: {
-    padding: 5,
+    padding: 3,
     height: 80,
     width: 80, //The Width must be the same as the height
     borderRadius: 200, //Then Make the Border Radius twice the size of width or Height
